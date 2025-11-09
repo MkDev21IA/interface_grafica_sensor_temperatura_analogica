@@ -1,5 +1,13 @@
 # Ambiente Virtual
 .venv/
 venv/
-pycache/ *.pyc
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos do VSCode
 .vscode/
+
+# Ficheiro de Teste Local
+test_sender.py
