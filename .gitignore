@@ -11,3 +11,8 @@ __pycache__/
 
 # Ficheiro de Teste Local
 test_sender.py
+sensor_log.csv
+
+#Imagens e Readme
+images/
+README.md
