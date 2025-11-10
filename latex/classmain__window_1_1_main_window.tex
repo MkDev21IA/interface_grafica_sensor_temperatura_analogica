@@ -1,0 +1,379 @@
+\doxysection{main\+\_\+window.\+Main\+Window Class Reference}
+\hypertarget{classmain__window_1_1_main_window}{}\label{classmain__window_1_1_main_window}\index{main\_window.MainWindow@{main\_window.MainWindow}}
+
+
+Classe principal da interface gráfica.  
+
+
+Inheritance diagram for main\+\_\+window.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmain__window_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a2bd010b3b5ccf6f8c56e1b39166b25c4}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Construtor da \doxylink{classmain__window_1_1_main_window}{Main\+Window}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a5424ed8c86e66ebec75bbc08dd55ad6f}{aplicar\+\_\+estilo\+\_\+escuro}} (self)
+\begin{DoxyCompactList}\small\item\em Aplica a folha de estilo (CSS/\+QSS) de modo escuro à aplicação. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_ab2ab96ee2b03ccd04c5876fc626ff692}{criar\+\_\+painel\+\_\+destaque}} (self)
+\begin{DoxyCompactList}\small\item\em Cria o painel da esquerda (Destaque). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_ae7ab84c836dfc71575ef95965436546b}{criar\+\_\+painel\+\_\+detalhes}} (self)
+\begin{DoxyCompactList}\small\item\em Cria o painel da direita (Detalhes e Controlo). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a46d236e7dacdb90e8af55a2c773b0a7d}{limite\+\_\+dinamico\+\_\+mudou}} (self)
+\begin{DoxyCompactList}\small\item\em Slot\+: Chamado quando o valor do QDouble\+Spin\+Box (limites) é alterado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a51973a1f4bbcbfff0a2d893b2702a04d}{save\+\_\+log\+\_\+file\+\_\+manual}} (self)
+\begin{DoxyCompactList}\small\item\em Slot\+: Chamado quando o botão "{}\+Salvar Histórico"{} é clicado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_ab5745e9709dfb12e909c9150ef059bfc}{on\+\_\+auto\+\_\+logging\+\_\+toggled}} (self, is\+\_\+checked)
+\begin{DoxyCompactList}\small\item\em Slot\+: Chamado quando o checkbox "{}\+Log Automático"{} é (des)marcado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a4749125690af0d0d8e9fd9f2b18477c4}{check\+\_\+and\+\_\+write\+\_\+header}} (self)
+\begin{DoxyCompactList}\small\item\em Verifica se o ficheiro de log automático ({\ttfamily \doxylink{namespacemain__window_a1ab3cb47d61d6fb1128855104e279de7}{LOG\+\_\+\+FILENAME}}) existe. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a569d9b7a41b7d24946537f836c8d3347}{append\+\_\+log\+\_\+data\+\_\+auto}} (self, data\+\_\+dict)
+\begin{DoxyCompactList}\small\item\em Anexa uma linha de dados ao ficheiro de log automático. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_afb46177e9e418337b771bb781523b2d4}{update\+\_\+data}} (self, data\+\_\+dict)
+\begin{DoxyCompactList}\small\item\em Slot\+: O "{}coração"{} da UI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a4a3bbfccc2a1c84a88b3a745d123ef4e}{close\+Event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Event Handler\+: Chamado quando o usuário fecha a janela (clica no \textquotesingle{}X\textquotesingle{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a8021b5f8b79a95c6ce7256cf0421deac}{data\+\_\+buffer\+\_\+grafico}} = deque(maxlen=\mbox{\hyperlink{namespacemain__window_a44b758fa91767c609c4228be3d31f827}{HISTORICO\+\_\+\+SEGUNDOS}})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a639b6ee5111adaae5e0d4387667ab156}{data\+\_\+buffer\+\_\+tabela}} = deque(maxlen=\mbox{\hyperlink{namespacemain__window_acfe322bb80796a5f5d0e34f17bb059a6}{TAMANHO\+\_\+\+TABELA}})
+\item 
+bool \mbox{\hyperlink{classmain__window_1_1_main_window_ad586fceaa251d3901c4646253753296f}{is\+\_\+logging\+\_\+auto}} = False
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a9f7500b7cbd742af351fb6ed1b9ddae0}{limite\+\_\+min}} = \mbox{\hyperlink{namespacemain__window_abea0902e710c908cf1852d10c57ad9ab}{DEFAULT\+\_\+\+TEMP\+\_\+\+MIN}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_ae53ba3d542cbd78c93759c748b7a9e90}{limite\+\_\+max}} = \mbox{\hyperlink{namespacemain__window_a9a76da4b307ace5fff5756160305e792}{DEFAULT\+\_\+\+TEMP\+\_\+\+MAX}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a3d0722194ff6393f32c8db9ed1cc4a1d}{listener}} = UDPListener(udp\+\_\+ip, udp\+\_\+port)
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a61aa6f5749e3e39f126a734682204c2d}{update\+\_\+data}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a2ae3b52adf626fcc71ea4b93aa39b174}{label\+\_\+sensor\+\_\+id}} = QLabel("{}Sensor\+: ..."{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_af8392f286efc2e1bea68b8d27f807d90}{label\+\_\+valor\+\_\+atual}} = QLabel("{}-\/-\/-\/ °\+C"{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_afe121b95e1a098454f4babfe6e077f42}{label\+\_\+status}} = QLabel("{}Aguardando dados..."{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a0bc3f6312b108c71394201678fca9a44}{label\+\_\+ultima\+\_\+atualizacao}} = QLabel("{}Última Atualização\+: -\/-\/\+:-\/-\/\+:-\/-\/"{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a4d588244b00ad1e57f90cd0664f72e4b}{spin\+\_\+min}} = QDouble\+Spin\+Box()
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a7cf040c2cb05fc70e3fcf19d84887b1f}{limite\+\_\+dinamico\+\_\+mudou}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a83d9677c9a647832ff6f2ab6c86b94ef}{spin\+\_\+max}} = QDouble\+Spin\+Box()
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a2c283df35218f245b06f0e1db52b10c9}{log\+\_\+auto\+\_\+checkbox}} = QCheck\+Box(f"{}\+Log Automático (\{\mbox{\hyperlink{namespacemain__window_a1ab3cb47d61d6fb1128855104e279de7}{LOG\+\_\+\+FILENAME}}\})"{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a8c7e29cbed436009a4edab0e22fefd5e}{on\+\_\+auto\+\_\+logging\+\_\+toggled}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_af552c4813d20efd76ef1e1a402efc992}{plot\+\_\+widget}} = pg.\+Plot\+Widget()
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a5610fea8311417aa094a2be15a7b627f}{plot\+\_\+curve}}
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a8fef7ddb6e54e4ca2759f55f95487b3a}{tabela\+\_\+historico}} = QTable\+Widget()
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_a5ef4b723c6ee69e24a74719e24e04d40}{save\+\_\+log\+\_\+button}} = QPush\+Button("{}Salvar Histórico (60s) em CSV"{})
+\item 
+\mbox{\hyperlink{classmain__window_1_1_main_window_aa8a82ffdbcfdb8ba8662f3e0923209f8}{save\+\_\+log\+\_\+file\+\_\+manual}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe principal da interface gráfica. 
+
+Herda de QMain\+Window e compõe todos os widgets da UI, inicia o listener UDP e atualiza a interface com os dados recebidos. 
+
+\label{doc-constructors}
+\Hypertarget{classmain__window_1_1_main_window_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmain__window_1_1_main_window_a2bd010b3b5ccf6f8c56e1b39166b25c4}\index{main\_window.MainWindow@{main\_window.MainWindow}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a2bd010b3b5ccf6f8c56e1b39166b25c4} 
+main\+\_\+window.\+Main\+Window.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da \doxylink{classmain__window_1_1_main_window}{Main\+Window}. 
+
+Inicializa a UI, lê o ficheiro de configuração, aplica estilos, cria os layouts, inicializa os buffers de dados e inicia o listener UDP. 
+
+\label{doc-func-members}
+\Hypertarget{classmain__window_1_1_main_window_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmain__window_1_1_main_window_a5424ed8c86e66ebec75bbc08dd55ad6f}\index{main\_window.MainWindow@{main\_window.MainWindow}!aplicar\_estilo\_escuro@{aplicar\_estilo\_escuro}}
+\index{aplicar\_estilo\_escuro@{aplicar\_estilo\_escuro}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{aplicar\_estilo\_escuro()}{aplicar\_estilo\_escuro()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a5424ed8c86e66ebec75bbc08dd55ad6f} 
+main\+\_\+window.\+Main\+Window.\+aplicar\+\_\+estilo\+\_\+escuro (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Aplica a folha de estilo (CSS/\+QSS) de modo escuro à aplicação. 
+
+Define as cores de fundo, texto, botões e outros widgets usando as constantes de cor globais. \Hypertarget{classmain__window_1_1_main_window_a569d9b7a41b7d24946537f836c8d3347}\index{main\_window.MainWindow@{main\_window.MainWindow}!append\_log\_data\_auto@{append\_log\_data\_auto}}
+\index{append\_log\_data\_auto@{append\_log\_data\_auto}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{append\_log\_data\_auto()}{append\_log\_data\_auto()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a569d9b7a41b7d24946537f836c8d3347} 
+main\+\_\+window.\+Main\+Window.\+append\+\_\+log\+\_\+data\+\_\+auto (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{data\+\_\+dict}{}\end{DoxyParamCaption})}
+
+
+
+Anexa uma linha de dados ao ficheiro de log automático. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+dict} & (dict)\+: O dicionário de dados JSON recebido do sensor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmain__window_1_1_main_window_a4749125690af0d0d8e9fd9f2b18477c4}\index{main\_window.MainWindow@{main\_window.MainWindow}!check\_and\_write\_header@{check\_and\_write\_header}}
+\index{check\_and\_write\_header@{check\_and\_write\_header}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{check\_and\_write\_header()}{check\_and\_write\_header()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a4749125690af0d0d8e9fd9f2b18477c4} 
+main\+\_\+window.\+Main\+Window.\+check\+\_\+and\+\_\+write\+\_\+header (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se o ficheiro de log automático ({\ttfamily \doxylink{namespacemain__window_a1ab3cb47d61d6fb1128855104e279de7}{LOG\+\_\+\+FILENAME}}) existe. 
+
+Se o ficheiro não existir, cria-\/o e escreve a linha de cabeçalho (CSV\+\_\+\+HEADER). \Hypertarget{classmain__window_1_1_main_window_a4a3bbfccc2a1c84a88b3a745d123ef4e}\index{main\_window.MainWindow@{main\_window.MainWindow}!closeEvent@{closeEvent}}
+\index{closeEvent@{closeEvent}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{closeEvent()}{closeEvent()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a4a3bbfccc2a1c84a88b3a745d123ef4e} 
+main\+\_\+window.\+Main\+Window.\+close\+Event (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Event Handler\+: Chamado quando o usuário fecha a janela (clica no \textquotesingle{}X\textquotesingle{}). 
+
+Garante que a thread do listener UDP ({\ttfamily self.\+listener}) seja parada de forma limpa antes que a aplicação feche. 
+\begin{DoxyParams}{Parameters}
+{\em event} & (QClose\+Event)\+: O evento de fecho da janela. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmain__window_1_1_main_window_ab2ab96ee2b03ccd04c5876fc626ff692}\index{main\_window.MainWindow@{main\_window.MainWindow}!criar\_painel\_destaque@{criar\_painel\_destaque}}
+\index{criar\_painel\_destaque@{criar\_painel\_destaque}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{criar\_painel\_destaque()}{criar\_painel\_destaque()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_ab2ab96ee2b03ccd04c5876fc626ff692} 
+main\+\_\+window.\+Main\+Window.\+criar\+\_\+painel\+\_\+destaque (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Cria o painel da esquerda (Destaque). 
+
+Constrói o layout vertical que contém o valor atual (grande), o status do alerta e o timestamp da última atualização. \begin{DoxyReturn}{Returns}
+(QVBox\+Layout)\+: O layout do painel de destaque pronto a ser adicionado. 
+\end{DoxyReturn}
+\Hypertarget{classmain__window_1_1_main_window_ae7ab84c836dfc71575ef95965436546b}\index{main\_window.MainWindow@{main\_window.MainWindow}!criar\_painel\_detalhes@{criar\_painel\_detalhes}}
+\index{criar\_painel\_detalhes@{criar\_painel\_detalhes}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{criar\_painel\_detalhes()}{criar\_painel\_detalhes()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_ae7ab84c836dfc71575ef95965436546b} 
+main\+\_\+window.\+Main\+Window.\+criar\+\_\+painel\+\_\+detalhes (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Cria o painel da direita (Detalhes e Controlo). 
+
+Constrói o layout que contém o painel de configuração (limites, log auto), o gráfico histórico e a tabela de leituras recentes. \begin{DoxyReturn}{Returns}
+(QVBox\+Layout)\+: O layout do painel de detalhes pronto a ser adicionado. 
+\end{DoxyReturn}
+\Hypertarget{classmain__window_1_1_main_window_a46d236e7dacdb90e8af55a2c773b0a7d}\index{main\_window.MainWindow@{main\_window.MainWindow}!limite\_dinamico\_mudou@{limite\_dinamico\_mudou}}
+\index{limite\_dinamico\_mudou@{limite\_dinamico\_mudou}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{limite\_dinamico\_mudou()}{limite\_dinamico\_mudou()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a46d236e7dacdb90e8af55a2c773b0a7d} 
+main\+\_\+window.\+Main\+Window.\+limite\+\_\+dinamico\+\_\+mudou (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Slot\+: Chamado quando o valor do QDouble\+Spin\+Box (limites) é alterado. 
+
+Atualiza as variáveis {\ttfamily self.\+limite\+\_\+min} e {\ttfamily self.\+limite\+\_\+max} com os novos valores da UI. \Hypertarget{classmain__window_1_1_main_window_ab5745e9709dfb12e909c9150ef059bfc}\index{main\_window.MainWindow@{main\_window.MainWindow}!on\_auto\_logging\_toggled@{on\_auto\_logging\_toggled}}
+\index{on\_auto\_logging\_toggled@{on\_auto\_logging\_toggled}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_auto\_logging\_toggled()}{on\_auto\_logging\_toggled()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_ab5745e9709dfb12e909c9150ef059bfc} 
+main\+\_\+window.\+Main\+Window.\+on\+\_\+auto\+\_\+logging\+\_\+toggled (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{is\+\_\+checked}{}\end{DoxyParamCaption})}
+
+
+
+Slot\+: Chamado quando o checkbox "{}\+Log Automático"{} é (des)marcado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+checked} & (bool)\+: O novo estado do checkbox (True se marcado). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmain__window_1_1_main_window_a51973a1f4bbcbfff0a2d893b2702a04d}\index{main\_window.MainWindow@{main\_window.MainWindow}!save\_log\_file\_manual@{save\_log\_file\_manual}}
+\index{save\_log\_file\_manual@{save\_log\_file\_manual}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{save\_log\_file\_manual()}{save\_log\_file\_manual()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a51973a1f4bbcbfff0a2d893b2702a04d} 
+main\+\_\+window.\+Main\+Window.\+save\+\_\+log\+\_\+file\+\_\+manual (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Slot\+: Chamado quando o botão "{}\+Salvar Histórico"{} é clicado. 
+
+Abre um diálogo \textquotesingle{}Salvar Como...\textquotesingle{} (QFile\+Dialog) e salva os dados atuais do buffer do gráfico ({\ttfamily \doxylink{classmain__window_1_1_main_window_a8021b5f8b79a95c6ce7256cf0421deac}{data\+\_\+buffer\+\_\+grafico}}) num ficheiro CSV. \Hypertarget{classmain__window_1_1_main_window_afb46177e9e418337b771bb781523b2d4}\index{main\_window.MainWindow@{main\_window.MainWindow}!update\_data@{update\_data}}
+\index{update\_data@{update\_data}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{update\_data()}{update\_data()}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_afb46177e9e418337b771bb781523b2d4} 
+main\+\_\+window.\+Main\+Window.\+update\+\_\+data (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{data\+\_\+dict}{}\end{DoxyParamCaption})}
+
+
+
+Slot\+: O "{}coração"{} da UI. 
+
+Chamado quando o listener UDP emite novos dados.
+
+Processa o dicionário de dados, atualiza todos os QLabels, verifica os alertas, adiciona dados ao gráfico e à tabela, e chama o log automático (se ativo). 
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+dict} & (dict)\+: O dicionário de dados JSON recebido do sensor. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classmain__window_1_1_main_window_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmain__window_1_1_main_window_a8021b5f8b79a95c6ce7256cf0421deac}\index{main\_window.MainWindow@{main\_window.MainWindow}!data\_buffer\_grafico@{data\_buffer\_grafico}}
+\index{data\_buffer\_grafico@{data\_buffer\_grafico}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{data\_buffer\_grafico}{data\_buffer\_grafico}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a8021b5f8b79a95c6ce7256cf0421deac} 
+main\+\_\+window.\+Main\+Window.\+data\+\_\+buffer\+\_\+grafico = deque(maxlen=\mbox{\hyperlink{namespacemain__window_a44b758fa91767c609c4228be3d31f827}{HISTORICO\+\_\+\+SEGUNDOS}})}
+
+\Hypertarget{classmain__window_1_1_main_window_a639b6ee5111adaae5e0d4387667ab156}\index{main\_window.MainWindow@{main\_window.MainWindow}!data\_buffer\_tabela@{data\_buffer\_tabela}}
+\index{data\_buffer\_tabela@{data\_buffer\_tabela}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{data\_buffer\_tabela}{data\_buffer\_tabela}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a639b6ee5111adaae5e0d4387667ab156} 
+main\+\_\+window.\+Main\+Window.\+data\+\_\+buffer\+\_\+tabela = deque(maxlen=\mbox{\hyperlink{namespacemain__window_acfe322bb80796a5f5d0e34f17bb059a6}{TAMANHO\+\_\+\+TABELA}})}
+
+\Hypertarget{classmain__window_1_1_main_window_ad586fceaa251d3901c4646253753296f}\index{main\_window.MainWindow@{main\_window.MainWindow}!is\_logging\_auto@{is\_logging\_auto}}
+\index{is\_logging\_auto@{is\_logging\_auto}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{is\_logging\_auto}{is\_logging\_auto}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_ad586fceaa251d3901c4646253753296f} 
+bool main\+\_\+window.\+Main\+Window.\+is\+\_\+logging\+\_\+auto = False}
+
+\Hypertarget{classmain__window_1_1_main_window_a2ae3b52adf626fcc71ea4b93aa39b174}\index{main\_window.MainWindow@{main\_window.MainWindow}!label\_sensor\_id@{label\_sensor\_id}}
+\index{label\_sensor\_id@{label\_sensor\_id}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{label\_sensor\_id}{label\_sensor\_id}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a2ae3b52adf626fcc71ea4b93aa39b174} 
+main\+\_\+window.\+Main\+Window.\+label\+\_\+sensor\+\_\+id = QLabel("{}Sensor\+: ..."{})}
+
+\Hypertarget{classmain__window_1_1_main_window_afe121b95e1a098454f4babfe6e077f42}\index{main\_window.MainWindow@{main\_window.MainWindow}!label\_status@{label\_status}}
+\index{label\_status@{label\_status}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{label\_status}{label\_status}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_afe121b95e1a098454f4babfe6e077f42} 
+main\+\_\+window.\+Main\+Window.\+label\+\_\+status = QLabel("{}Aguardando dados..."{})}
+
+\Hypertarget{classmain__window_1_1_main_window_a0bc3f6312b108c71394201678fca9a44}\index{main\_window.MainWindow@{main\_window.MainWindow}!label\_ultima\_atualizacao@{label\_ultima\_atualizacao}}
+\index{label\_ultima\_atualizacao@{label\_ultima\_atualizacao}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{label\_ultima\_atualizacao}{label\_ultima\_atualizacao}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a0bc3f6312b108c71394201678fca9a44} 
+main\+\_\+window.\+Main\+Window.\+label\+\_\+ultima\+\_\+atualizacao = QLabel("{}Última Atualização\+: -\/-\/\+:-\/-\/\+:-\/-\/"{})}
+
+\Hypertarget{classmain__window_1_1_main_window_af8392f286efc2e1bea68b8d27f807d90}\index{main\_window.MainWindow@{main\_window.MainWindow}!label\_valor\_atual@{label\_valor\_atual}}
+\index{label\_valor\_atual@{label\_valor\_atual}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{label\_valor\_atual}{label\_valor\_atual}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_af8392f286efc2e1bea68b8d27f807d90} 
+main\+\_\+window.\+Main\+Window.\+label\+\_\+valor\+\_\+atual = QLabel("{}-\/-\/-\/ °\+C"{})}
+
+\Hypertarget{classmain__window_1_1_main_window_a7cf040c2cb05fc70e3fcf19d84887b1f}\index{main\_window.MainWindow@{main\_window.MainWindow}!limite\_dinamico\_mudou@{limite\_dinamico\_mudou}}
+\index{limite\_dinamico\_mudou@{limite\_dinamico\_mudou}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{limite\_dinamico\_mudou}{limite\_dinamico\_mudou}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a7cf040c2cb05fc70e3fcf19d84887b1f} 
+main\+\_\+window.\+Main\+Window.\+limite\+\_\+dinamico\+\_\+mudou}
+
+\Hypertarget{classmain__window_1_1_main_window_ae53ba3d542cbd78c93759c748b7a9e90}\index{main\_window.MainWindow@{main\_window.MainWindow}!limite\_max@{limite\_max}}
+\index{limite\_max@{limite\_max}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{limite\_max}{limite\_max}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_ae53ba3d542cbd78c93759c748b7a9e90} 
+main\+\_\+window.\+Main\+Window.\+limite\+\_\+max = \mbox{\hyperlink{namespacemain__window_a9a76da4b307ace5fff5756160305e792}{DEFAULT\+\_\+\+TEMP\+\_\+\+MAX}}}
+
+\Hypertarget{classmain__window_1_1_main_window_a9f7500b7cbd742af351fb6ed1b9ddae0}\index{main\_window.MainWindow@{main\_window.MainWindow}!limite\_min@{limite\_min}}
+\index{limite\_min@{limite\_min}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{limite\_min}{limite\_min}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a9f7500b7cbd742af351fb6ed1b9ddae0} 
+main\+\_\+window.\+Main\+Window.\+limite\+\_\+min = \mbox{\hyperlink{namespacemain__window_abea0902e710c908cf1852d10c57ad9ab}{DEFAULT\+\_\+\+TEMP\+\_\+\+MIN}}}
+
+\Hypertarget{classmain__window_1_1_main_window_a3d0722194ff6393f32c8db9ed1cc4a1d}\index{main\_window.MainWindow@{main\_window.MainWindow}!listener@{listener}}
+\index{listener@{listener}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{listener}{listener}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a3d0722194ff6393f32c8db9ed1cc4a1d} 
+main\+\_\+window.\+Main\+Window.\+listener = UDPListener(udp\+\_\+ip, udp\+\_\+port)}
+
+\Hypertarget{classmain__window_1_1_main_window_a2c283df35218f245b06f0e1db52b10c9}\index{main\_window.MainWindow@{main\_window.MainWindow}!log\_auto\_checkbox@{log\_auto\_checkbox}}
+\index{log\_auto\_checkbox@{log\_auto\_checkbox}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{log\_auto\_checkbox}{log\_auto\_checkbox}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a2c283df35218f245b06f0e1db52b10c9} 
+main\+\_\+window.\+Main\+Window.\+log\+\_\+auto\+\_\+checkbox = QCheck\+Box(f"{}\+Log Automático (\{\mbox{\hyperlink{namespacemain__window_a1ab3cb47d61d6fb1128855104e279de7}{LOG\+\_\+\+FILENAME}}\})"{})}
+
+\Hypertarget{classmain__window_1_1_main_window_a8c7e29cbed436009a4edab0e22fefd5e}\index{main\_window.MainWindow@{main\_window.MainWindow}!on\_auto\_logging\_toggled@{on\_auto\_logging\_toggled}}
+\index{on\_auto\_logging\_toggled@{on\_auto\_logging\_toggled}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{on\_auto\_logging\_toggled}{on\_auto\_logging\_toggled}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a8c7e29cbed436009a4edab0e22fefd5e} 
+main\+\_\+window.\+Main\+Window.\+on\+\_\+auto\+\_\+logging\+\_\+toggled}
+
+\Hypertarget{classmain__window_1_1_main_window_a5610fea8311417aa094a2be15a7b627f}\index{main\_window.MainWindow@{main\_window.MainWindow}!plot\_curve@{plot\_curve}}
+\index{plot\_curve@{plot\_curve}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{plot\_curve}{plot\_curve}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a5610fea8311417aa094a2be15a7b627f} 
+main\+\_\+window.\+Main\+Window.\+plot\+\_\+curve}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ self.plot\_widget.plot(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pen=pg.mkPen(COR\_GRAFICO,\ width=2)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{classmain__window_1_1_main_window_af552c4813d20efd76ef1e1a402efc992}\index{main\_window.MainWindow@{main\_window.MainWindow}!plot\_widget@{plot\_widget}}
+\index{plot\_widget@{plot\_widget}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{plot\_widget}{plot\_widget}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_af552c4813d20efd76ef1e1a402efc992} 
+main\+\_\+window.\+Main\+Window.\+plot\+\_\+widget = pg.\+Plot\+Widget()}
+
+\Hypertarget{classmain__window_1_1_main_window_a5ef4b723c6ee69e24a74719e24e04d40}\index{main\_window.MainWindow@{main\_window.MainWindow}!save\_log\_button@{save\_log\_button}}
+\index{save\_log\_button@{save\_log\_button}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{save\_log\_button}{save\_log\_button}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a5ef4b723c6ee69e24a74719e24e04d40} 
+main\+\_\+window.\+Main\+Window.\+save\+\_\+log\+\_\+button = QPush\+Button("{}Salvar Histórico (60s) em CSV"{})}
+
+\Hypertarget{classmain__window_1_1_main_window_aa8a82ffdbcfdb8ba8662f3e0923209f8}\index{main\_window.MainWindow@{main\_window.MainWindow}!save\_log\_file\_manual@{save\_log\_file\_manual}}
+\index{save\_log\_file\_manual@{save\_log\_file\_manual}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{save\_log\_file\_manual}{save\_log\_file\_manual}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_aa8a82ffdbcfdb8ba8662f3e0923209f8} 
+main\+\_\+window.\+Main\+Window.\+save\+\_\+log\+\_\+file\+\_\+manual}
+
+\Hypertarget{classmain__window_1_1_main_window_a83d9677c9a647832ff6f2ab6c86b94ef}\index{main\_window.MainWindow@{main\_window.MainWindow}!spin\_max@{spin\_max}}
+\index{spin\_max@{spin\_max}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{spin\_max}{spin\_max}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a83d9677c9a647832ff6f2ab6c86b94ef} 
+main\+\_\+window.\+Main\+Window.\+spin\+\_\+max = QDouble\+Spin\+Box()}
+
+\Hypertarget{classmain__window_1_1_main_window_a4d588244b00ad1e57f90cd0664f72e4b}\index{main\_window.MainWindow@{main\_window.MainWindow}!spin\_min@{spin\_min}}
+\index{spin\_min@{spin\_min}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{spin\_min}{spin\_min}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a4d588244b00ad1e57f90cd0664f72e4b} 
+main\+\_\+window.\+Main\+Window.\+spin\+\_\+min = QDouble\+Spin\+Box()}
+
+\Hypertarget{classmain__window_1_1_main_window_a8fef7ddb6e54e4ca2759f55f95487b3a}\index{main\_window.MainWindow@{main\_window.MainWindow}!tabela\_historico@{tabela\_historico}}
+\index{tabela\_historico@{tabela\_historico}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{tabela\_historico}{tabela\_historico}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a8fef7ddb6e54e4ca2759f55f95487b3a} 
+main\+\_\+window.\+Main\+Window.\+tabela\+\_\+historico = QTable\+Widget()}
+
+\Hypertarget{classmain__window_1_1_main_window_a61aa6f5749e3e39f126a734682204c2d}\index{main\_window.MainWindow@{main\_window.MainWindow}!update\_data@{update\_data}}
+\index{update\_data@{update\_data}!main\_window.MainWindow@{main\_window.MainWindow}}
+\doxysubsubsection{\texorpdfstring{update\_data}{update\_data}}
+{\footnotesize\ttfamily \label{classmain__window_1_1_main_window_a61aa6f5749e3e39f126a734682204c2d} 
+main\+\_\+window.\+Main\+Window.\+update\+\_\+data}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{main__window_8py}{main\+\_\+window.\+py}}\end{DoxyCompactItemize}

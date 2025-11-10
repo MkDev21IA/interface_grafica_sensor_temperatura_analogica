@@ -1,0 +1,124 @@
+\doxysection{udp\+\_\+listener.\+UDPListener Class Reference}
+\hypertarget{classudp__listener_1_1_u_d_p_listener}{}\label{classudp__listener_1_1_u_d_p_listener}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+
+
+Thread que escuta pacotes UDP e emite sinais com os dados.  
+
+
+Inheritance diagram for udp\+\_\+listener.\+UDPListener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classudp__listener_1_1_u_d_p_listener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_a846ad42a0464cd2f1c15f9ca8aa74a08}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, ip, port, parent=None)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classudp__listener_1_1_u_d_p_listener}{UDPListener}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_aa738c9116e111144caadda4ff84a8444}{run}} (self)
+\begin{DoxyCompactList}\small\item\em O "{}coração"{} da thread, executado quando .start() é chamado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_adb0fd0b6de9ea0f9ecb35ed03268b2a5}{stop}} (self)
+\begin{DoxyCompactList}\small\item\em Pára a thread de forma limpa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_a2cc44ba8e74b56804f6c9404f913cae8}{UDP\+\_\+\+IP}} = ip
+\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_ad652ebe077af555f76f482028797009e}{UDP\+\_\+\+PORT}} = port
+\item 
+bool \mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_a60571b3c22bdb3a6b8ce6496ee0f79c5}{running}} = True
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener_a5406189db303288d3f6d519226efc69a}{data\+\_\+received}} = pyqt\+Signal(dict)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread que escuta pacotes UDP e emite sinais com os dados. 
+
+Esta classe é a principal trabalhadora de rede. Ela faz o \textquotesingle{}bind\textquotesingle{} a um IP e porta e entra em um loop, emitindo um sinal \textquotesingle{}data\+\_\+received\textquotesingle{} para cada pacote JSON válido que recebe. 
+
+\label{doc-constructors}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_a846ad42a0464cd2f1c15f9ca8aa74a08}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_a846ad42a0464cd2f1c15f9ca8aa74a08} 
+udp\+\_\+listener.\+UDPListener.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{ip}{, }\item[{}]{port}{, }\item[{}]{parent}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classudp__listener_1_1_u_d_p_listener}{UDPListener}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & (str)\+: O endereço IP para fazer o \textquotesingle{}bind\textquotesingle{} (ex\+: \textquotesingle{}0.\+0.\+0.\+0\textquotesingle{}). \\
+\hline
+{\em port} & (int)\+: A porta UDP para escutar. \\
+\hline
+{\em parent} & (QObject)\+: O objeto pai do Qt (opcional). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_aa738c9116e111144caadda4ff84a8444}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!run@{run}}
+\index{run@{run}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_aa738c9116e111144caadda4ff84a8444} 
+udp\+\_\+listener.\+UDPListener.\+run (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+O "{}coração"{} da thread, executado quando .start() é chamado. 
+
+Configura o socket, entra no loop \textquotesingle{}while self.\+running\textquotesingle{}, e escuta por pacotes. O \textquotesingle{}sock.\+settimeout(1.\+0)\textquotesingle{} é crucial para permitir que a thread feche de forma limpa, pois o loop verifica \textquotesingle{}self.\+running\textquotesingle{} a cada segundo, mesmo se não houver dados (graças ao \textquotesingle{}except socket.\+timeout\textquotesingle{}). \Hypertarget{classudp__listener_1_1_u_d_p_listener_adb0fd0b6de9ea0f9ecb35ed03268b2a5}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!stop@{stop}}
+\index{stop@{stop}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_adb0fd0b6de9ea0f9ecb35ed03268b2a5} 
+udp\+\_\+listener.\+UDPListener.\+stop (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Pára a thread de forma limpa. 
+
+Define a flag \textquotesingle{}self.\+running\textquotesingle{} como False, o que faz com que o loop em \doxylink{classudp__listener_1_1_u_d_p_listener_aa738c9116e111144caadda4ff84a8444}{run()} termine na próxima iteração (após o timeout). 
+
+\label{doc-variable-members}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_a5406189db303288d3f6d519226efc69a}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!data\_received@{data\_received}}
+\index{data\_received@{data\_received}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{data\_received}{data\_received}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_a5406189db303288d3f6d519226efc69a} 
+udp\+\_\+listener.\+UDPListener.\+data\+\_\+received = pyqt\+Signal(dict)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_a60571b3c22bdb3a6b8ce6496ee0f79c5}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!running@{running}}
+\index{running@{running}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_a60571b3c22bdb3a6b8ce6496ee0f79c5} 
+bool udp\+\_\+listener.\+UDPListener.\+running = True}
+
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_a2cc44ba8e74b56804f6c9404f913cae8}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!UDP\_IP@{UDP\_IP}}
+\index{UDP\_IP@{UDP\_IP}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{UDP\_IP}{UDP\_IP}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_a2cc44ba8e74b56804f6c9404f913cae8} 
+udp\+\_\+listener.\+UDPListener.\+UDP\+\_\+\+IP = ip}
+
+\Hypertarget{classudp__listener_1_1_u_d_p_listener_ad652ebe077af555f76f482028797009e}\index{udp\_listener.UDPListener@{udp\_listener.UDPListener}!UDP\_PORT@{UDP\_PORT}}
+\index{UDP\_PORT@{UDP\_PORT}!udp\_listener.UDPListener@{udp\_listener.UDPListener}}
+\doxysubsubsection{\texorpdfstring{UDP\_PORT}{UDP\_PORT}}
+{\footnotesize\ttfamily \label{classudp__listener_1_1_u_d_p_listener_ad652ebe077af555f76f482028797009e} 
+udp\+\_\+listener.\+UDPListener.\+UDP\+\_\+\+PORT = port}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{udp__listener_8py}{udp\+\_\+listener.\+py}}\end{DoxyCompactItemize}

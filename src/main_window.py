@@ -1,4 +1,10 @@
-# src/main_window.py
+"""!
+@file main_window.py
+@brief Implementação da janela principal (Dashboard) da interface gráfica.
+@details Esta classe é o coração da UI. Ela usa PyQt6 e pyqtgraph
+         para criar um dashboard que exibe dados de sensores em tempo real,
+         incluindo valor atual, gráfico histórico, alertas e opções de log.
+"""
 
 # Importando bibliotecas necessárias
 import configparser
@@ -29,7 +35,7 @@ LOG_FILENAME = "sensor_log_continuo.csv"
 # Cabeçalho do CSV
 CSV_HEADER = ['ts', 'group', 'sensor_id', 'value', 'unit']
 
-# --- Cores  ---
+# --- Cores ---
 COR_FUNDO = "#1E1E1E"       
 COR_TEXTO = "#D4D4D4"       
 COR_DESTAQUE_NORMAL = "#00A896" 
@@ -41,10 +47,17 @@ COR_FUNDO_PAINEL = "#2A2A2A"
 TAMANHO_FONTE_VALOR = 120
 
 class MainWindow(QMainWindow):
-    """
-    Interface Gráfica para monitoramento de sensor (v5.3).
+    """!
+    @brief Classe principal da interface gráfica.
+    @details Herda de QMainWindow e compõe todos os widgets da UI,
+             inicia o listener UDP e atualiza a interface com os dados recebidos.
     """
     def __init__(self):
+        """!
+        @brief Construtor da MainWindow.
+        @details Inicializa a UI, lê o ficheiro de configuração, aplica estilos,
+                 cria os layouts, inicializa os buffers de dados e inicia o listener UDP.
+        """
         super().__init__()
 
         # --- 1. Ler Configuração ---
@@ -61,6 +74,9 @@ class MainWindow(QMainWindow):
         self.aplicar_estilo_escuro()
 
         # --- 4. Buffers de Dados e Flags ---
+        """!
+        @brief Buffers de dados para o gráfico/tabela e flags de controlo.
+        """
         self.data_buffer_grafico = deque(maxlen=HISTORICO_SEGUNDOS)
         self.data_buffer_tabela = deque(maxlen=TAMANHO_TABELA) 
         self.is_logging_auto = False 
@@ -84,6 +100,11 @@ class MainWindow(QMainWindow):
 
 # -- Funções de Estilo e Criação de Componentes ---
     def aplicar_estilo_escuro(self):
+        """!
+        @brief Aplica a folha de estilo (CSS/QSS) de modo escuro à aplicação.
+        @details Define as cores de fundo, texto, botões e outros widgets
+                 usando as constantes de cor globais.
+        """
         self.setStyleSheet(f"""
             QMainWindow {{ background-color: {COR_FUNDO}; }}
             QLabel {{ color: {COR_TEXTO}; font-size: 14px; }}
@@ -131,6 +152,12 @@ class MainWindow(QMainWindow):
         """)
 
     def criar_painel_destaque(self):
+        """!
+        @brief Cria o painel da esquerda (Destaque).
+        @details Constrói o layout vertical que contém o valor atual (grande),
+                 o status do alerta e o timestamp da última atualização.
+        @return (QVBoxLayout): O layout do painel de destaque pronto a ser adicionado.
+        """
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter) 
 
@@ -163,7 +190,12 @@ class MainWindow(QMainWindow):
         return layout
 
     def criar_painel_detalhes(self):
-        """Cria o painel da direita com gráfico, tabela e controlos."""
+        """!
+        @brief Cria o painel da direita (Detalhes e Controlo).
+        @details Constrói o layout que contém o painel de configuração (limites, log auto),
+                 o gráfico histórico e a tabela de leituras recentes.
+        @return (QVBoxLayout): O layout do painel de detalhes pronto a ser adicionado.
+        """
         layout_principal_detalhes = QVBoxLayout()
 
         config_frame = QFrame()
@@ -215,6 +247,11 @@ class MainWindow(QMainWindow):
     # --- Funções de Callback (Slots) ---
 
     def limite_dinamico_mudou(self):
+        """!
+        @brief Slot: Chamado quando o valor do QDoubleSpinBox (limites) é alterado.
+        @details Atualiza as variáveis `self.limite_min` e `self.limite_max`
+                 com os novos valores da UI.
+        """
         self.limite_min = self.spin_min.value()
         self.limite_max = self.spin_max.value()
         print(f"Novos limites de alerta: Mín={self.limite_min}, Máx={self.limite_max}")
@@ -222,6 +259,12 @@ class MainWindow(QMainWindow):
             self.spin_max.setValue(self.limite_min + 1)
 
     def save_log_file_manual(self):
+        """!
+        @brief Slot: Chamado quando o botão "Salvar Histórico" é clicado.
+        @details Abre um diálogo 'Salvar Como...' (QFileDialog) e salva os
+                 dados atuais do buffer do gráfico (`data_buffer_grafico`)
+                 num ficheiro CSV.
+        """
         print("Iniciando salvamento manual de log...")
         data_snapshot = list(self.data_buffer_grafico)
         
@@ -247,7 +290,10 @@ class MainWindow(QMainWindow):
     # --- Funções de Log Automático ---
     
     def on_auto_logging_toggled(self, is_checked):
-        """Chamado quando o checkbox de log automático é marcado."""
+        """!
+        @brief Slot: Chamado quando o checkbox "Log Automático" é (des)marcado.
+        @param is_checked (bool): O novo estado do checkbox (True se marcado).
+        """
         self.is_logging_auto = is_checked
         if self.is_logging_auto:
             print(f"Log automático iniciado: {LOG_FILENAME}")
@@ -256,6 +302,11 @@ class MainWindow(QMainWindow):
             print("Log automático parado.")
 
     def check_and_write_header(self):
+        """!
+        @brief Verifica se o ficheiro de log automático (`LOG_FILENAME`) existe.
+        @details Se o ficheiro não existir, cria-o e escreve a linha de
+                 cabeçalho (CSV_HEADER).
+        """
         if not os.path.exists(LOG_FILENAME):
             try:
                 with open(LOG_FILENAME, 'w', newline='', encoding='utf-8') as f:
@@ -266,6 +317,10 @@ class MainWindow(QMainWindow):
                 self.log_auto_checkbox.setChecked(False) 
 
     def append_log_data_auto(self, data_dict):
+        """!
+        @brief Anexa uma linha de dados ao ficheiro de log automático.
+        @param data_dict (dict): O dicionário de dados JSON recebido do sensor.
+        """
         try:
             # [MUDANÇA] Usa as novas chaves 'ts' e 'group'
             row = [
@@ -285,6 +340,13 @@ class MainWindow(QMainWindow):
     # -----------------------------------
 
     def update_data(self, data_dict):
+        """!
+        @brief Slot: O "coração" da UI. Chamado quando o listener UDP emite novos dados.
+        @details Processa o dicionário de dados, atualiza todos os QLabels,
+                 verifica os alertas, adiciona dados ao gráfico e à tabela,
+                 e chama o log automático (se ativo).
+        @param data_dict (dict): O dicionário de dados JSON recebido do sensor.
+        """
         try:
             # --- [MUDANÇA] 1. Extrai dados com as novas chaves ---
             sensor = data_dict.get('sensor_id', 'N/A')
@@ -352,6 +414,12 @@ class MainWindow(QMainWindow):
 
     # --- Evento de Fecho da Janela ---
     def closeEvent(self, event):
+        """!
+        @brief Event Handler: Chamado quando o usuário fecha a janela (clica no 'X').
+        @details Garante que a thread do listener UDP (`self.listener`)
+                 seja parada de forma limpa antes que a aplicação feche.
+        @param event (QCloseEvent): O evento de fecho da janela.
+        """
         print("A fechar a aplicação...")
         self.listener.stop()
         self.listener.wait()

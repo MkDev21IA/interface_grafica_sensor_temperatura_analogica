@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['geral_20da_20interface_0',['📸 Visão Geral da Interface',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['grupo_206_1',['📊 Monitor de Sensor UDP (Grupo 6)',['../md__r_e_a_d_m_e.html',1,'']]]
+];

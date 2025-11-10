@@ -1,22 +1,52 @@
-# src/udp_listener.py
+"""!
+@file udp_listener.py
+@brief Implementa a thread de escuta (listener) UDP.
+@details Este módulo contém a classe UDPListener, que herda de QThread.
+         Sua responsabilidade é escutar por pacotes UDP em uma thread separada
+         para não bloquear a interface gráfica principal. Ele usa um timeout
+         para permitir um encerramento limpo.
+"""
 
-# Este módulo implementa um listener UDP que recebe pacotes JSON
-# e emite sinais com os dados recebidos para a interface gráfica.
 import socket
 import json
 from PyQt6.QtCore import QThread, pyqtSignal
 
-# Classe UDPListener: Thread que escuta pacotes UDP
 class UDPListener(QThread):
+    """!
+    @brief Thread que escuta pacotes UDP e emite sinais com os dados.
+    @details Esta classe é a principal trabalhadora de rede. Ela faz o 'bind'
+             a um IP e porta e entra em um loop, emitindo um sinal
+             'data_received' para cada pacote JSON válido que recebe.
+    """
+    
     data_received = pyqtSignal(dict)
+    """!
+    @brief Sinal emitido quando um novo pacote de dados (dict) é recebido.
+    @details A MainWindow (ou qualquer outra classe) pode se conectar a este sinal
+             para ser notificada quando novos dados chegarem.
+    """
 
     def __init__(self, ip, port, parent=None):
+        """!
+        @brief Construtor da classe UDPListener.
+        
+        @param ip (str): O endereço IP para fazer o 'bind' (ex: '0.0.0.0').
+        @param port (int): A porta UDP para escutar.
+        @param parent (QObject): O objeto pai do Qt (opcional).
+        """
         super().__init__(parent)
         self.UDP_IP = ip
         self.UDP_PORT = port
         self.running = True
 
     def run(self):
+        """!
+        @brief O "coração" da thread, executado quando .start() é chamado.
+        @details Configura o socket, entra no loop 'while self.running', e escuta por pacotes.
+                 O 'sock.settimeout(1.0)' é crucial para permitir que a thread feche
+                 de forma limpa, pois o loop verifica 'self.running' a cada segundo,
+                 mesmo se não houver dados (graças ao 'except socket.timeout').
+        """
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
         # --- [A CORREÇÃO ESTÁ AQUI] ---
@@ -58,4 +88,9 @@ class UDPListener(QThread):
         print("Thread UDP terminada.")
 
     def stop(self):
+        """!
+        @brief Pára a thread de forma limpa.
+        @details Define a flag 'self.running' como False, o que faz com que
+                 o loop em run() termine na próxima iteração (após o timeout).
+        """
         self.running = False

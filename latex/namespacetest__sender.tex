@@ -1,0 +1,101 @@
+\doxysection{test\+\_\+sender Namespace Reference}
+\hypertarget{namespacetest__sender}{}\label{namespacetest__sender}\index{test\_sender@{test\_sender}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespacetest__sender_a1b3bde48a702e96ddd2d9ba62927fa14}{UDP\+\_\+\+IP}} = "{}127.\+0.\+0.\+1"{}
+\item 
+int \mbox{\hyperlink{namespacetest__sender_a2dbc319ba74efa80f3f007464ecdf359}{UDP\+\_\+\+PORT}} = 5000
+\item 
+\mbox{\hyperlink{namespacetest__sender_a71f2fce1c4b8495891e78920035df2b5}{sock}} = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+DGRAM)
+\item 
+str \mbox{\hyperlink{namespacetest__sender_ae3c81cf915e915ac618c843e134cb306}{id\+\_\+grupo}} = "{}grupo6"{}
+\item 
+str \mbox{\hyperlink{namespacetest__sender_a9d6330914df518363ed7a26a897c972c}{id\+\_\+sensor}} = "{}Sensor\+\_\+\+Simulado\+\_\+01"{}
+\item 
+float \mbox{\hyperlink{namespacetest__sender_af5acfeecf8ccf7d6532bfafdc8a1f5d0}{valor\+\_\+temp}} = 20.\+0
+\item 
+\mbox{\hyperlink{namespacetest__sender_a6ccd1a7742d8f60b01b0fc8f67981f33}{timestamp\+\_\+iso}} = datetime.\+datetime.\+now(datetime.\+timezone.\+utc).strftime("{}\%Y-\/\%m-\/\%dT\%H\+:\%M\+:\%SZ"{})
+\item 
+dict \mbox{\hyperlink{namespacetest__sender_ab14e758902bf48b449b3c706a2a9779f}{pacote}}
+\item 
+\mbox{\hyperlink{namespacetest__sender_abdad26bfb9c6beb13b8470d9229cbdc9}{json\+\_\+string}} = json.\+dumps(\mbox{\hyperlink{namespacetest__sender_ab14e758902bf48b449b3c706a2a9779f}{pacote}})
+\item 
+\mbox{\hyperlink{namespacetest__sender_aeb68f634f8d16b1655284bddc81ddfae}{message\+\_\+bytes}} = json\+\_\+string.\+encode(\textquotesingle{}utf-\/8\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{namespacetest__sender_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacetest__sender_ae3c81cf915e915ac618c843e134cb306}\index{test\_sender@{test\_sender}!id\_grupo@{id\_grupo}}
+\index{id\_grupo@{id\_grupo}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{id\_grupo}{id\_grupo}}
+{\footnotesize\ttfamily \label{namespacetest__sender_ae3c81cf915e915ac618c843e134cb306} 
+str test\+\_\+sender.\+id\+\_\+grupo = "{}grupo6"{}}
+
+\Hypertarget{namespacetest__sender_a9d6330914df518363ed7a26a897c972c}\index{test\_sender@{test\_sender}!id\_sensor@{id\_sensor}}
+\index{id\_sensor@{id\_sensor}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{id\_sensor}{id\_sensor}}
+{\footnotesize\ttfamily \label{namespacetest__sender_a9d6330914df518363ed7a26a897c972c} 
+str test\+\_\+sender.\+id\+\_\+sensor = "{}Sensor\+\_\+\+Simulado\+\_\+01"{}}
+
+\Hypertarget{namespacetest__sender_abdad26bfb9c6beb13b8470d9229cbdc9}\index{test\_sender@{test\_sender}!json\_string@{json\_string}}
+\index{json\_string@{json\_string}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{json\_string}{json\_string}}
+{\footnotesize\ttfamily \label{namespacetest__sender_abdad26bfb9c6beb13b8470d9229cbdc9} 
+test\+\_\+sender.\+json\+\_\+string = json.\+dumps(\mbox{\hyperlink{namespacetest__sender_ab14e758902bf48b449b3c706a2a9779f}{pacote}})}
+
+\Hypertarget{namespacetest__sender_aeb68f634f8d16b1655284bddc81ddfae}\index{test\_sender@{test\_sender}!message\_bytes@{message\_bytes}}
+\index{message\_bytes@{message\_bytes}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{message\_bytes}{message\_bytes}}
+{\footnotesize\ttfamily \label{namespacetest__sender_aeb68f634f8d16b1655284bddc81ddfae} 
+test\+\_\+sender.\+message\+\_\+bytes = json\+\_\+string.\+encode(\textquotesingle{}utf-\/8\textquotesingle{})}
+
+\Hypertarget{namespacetest__sender_ab14e758902bf48b449b3c706a2a9779f}\index{test\_sender@{test\_sender}!pacote@{pacote}}
+\index{pacote@{pacote}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{pacote}{pacote}}
+{\footnotesize\ttfamily \label{namespacetest__sender_ab14e758902bf48b449b3c706a2a9779f} 
+dict test\+\_\+sender.\+pacote}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \{}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}group"{}}:\ id\_grupo,}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sensor\_id"{}}:\ id\_sensor,}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}value"{}}:\ round(valor\_temp,\ 2),}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}unit"{}}:\ \textcolor{stringliteral}{"{}°C"{}},}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ts"{}}:\ timestamp\_iso\ \textcolor{comment}{\#\ Usa\ a\ nova\ string\ de\ timestamp}}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacetest__sender_a71f2fce1c4b8495891e78920035df2b5}\index{test\_sender@{test\_sender}!sock@{sock}}
+\index{sock@{sock}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{sock}{sock}}
+{\footnotesize\ttfamily \label{namespacetest__sender_a71f2fce1c4b8495891e78920035df2b5} 
+test\+\_\+sender.\+sock = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+DGRAM)}
+
+\Hypertarget{namespacetest__sender_a6ccd1a7742d8f60b01b0fc8f67981f33}\index{test\_sender@{test\_sender}!timestamp\_iso@{timestamp\_iso}}
+\index{timestamp\_iso@{timestamp\_iso}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{timestamp\_iso}{timestamp\_iso}}
+{\footnotesize\ttfamily \label{namespacetest__sender_a6ccd1a7742d8f60b01b0fc8f67981f33} 
+test\+\_\+sender.\+timestamp\+\_\+iso = datetime.\+datetime.\+now(datetime.\+timezone.\+utc).strftime("{}\%Y-\/\%m-\/\%dT\%H\+:\%M\+:\%SZ"{})}
+
+\Hypertarget{namespacetest__sender_a1b3bde48a702e96ddd2d9ba62927fa14}\index{test\_sender@{test\_sender}!UDP\_IP@{UDP\_IP}}
+\index{UDP\_IP@{UDP\_IP}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{UDP\_IP}{UDP\_IP}}
+{\footnotesize\ttfamily \label{namespacetest__sender_a1b3bde48a702e96ddd2d9ba62927fa14} 
+str test\+\_\+sender.\+UDP\+\_\+\+IP = "{}127.\+0.\+0.\+1"{}}
+
+\Hypertarget{namespacetest__sender_a2dbc319ba74efa80f3f007464ecdf359}\index{test\_sender@{test\_sender}!UDP\_PORT@{UDP\_PORT}}
+\index{UDP\_PORT@{UDP\_PORT}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{UDP\_PORT}{UDP\_PORT}}
+{\footnotesize\ttfamily \label{namespacetest__sender_a2dbc319ba74efa80f3f007464ecdf359} 
+int test\+\_\+sender.\+UDP\+\_\+\+PORT = 5000}
+
+\Hypertarget{namespacetest__sender_af5acfeecf8ccf7d6532bfafdc8a1f5d0}\index{test\_sender@{test\_sender}!valor\_temp@{valor\_temp}}
+\index{valor\_temp@{valor\_temp}!test\_sender@{test\_sender}}
+\doxysubsubsection{\texorpdfstring{valor\_temp}{valor\_temp}}
+{\footnotesize\ttfamily \label{namespacetest__sender_af5acfeecf8ccf7d6532bfafdc8a1f5d0} 
+float test\+\_\+sender.\+valor\+\_\+temp = 20.\+0}
+

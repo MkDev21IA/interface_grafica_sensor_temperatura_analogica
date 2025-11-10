@@ -1,0 +1,118 @@
+\chapter{📊 Monitor de Sensor UDP (Grupo 6) }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{📊 Monitor de Sensor UDP (Grupo 6)@{📊 Monitor de Sensor UDP (Grupo 6)}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Interface gráfica em Python (Py\+Qt6) destinada a receber, processar e exibir dados de um sensor (STM32) enviados via protocolo UDP.
+
+Este projeto recebe pacotes JSON do dispositivo embarcado e atualiza a interface em tempo real, implementando todos os requisitos obrigatórios e bônus do projeto.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{📸 Visão Geral da Interface}{📸 Visão Geral da Interface}}\label{md__r_e_a_d_m_e_autotoc_md1}
+A interface principal é um dashboard em modo escuro, dividido em duas secções\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Painel de Destaque (Esquerda)\+:}} Focado no valor atual para monitoramento rápido, status e alertas visuais.
+\item {\bfseries{Painel de Detalhes (Direita)\+:}} Fornece o contexto histórico (gráfico e tabela) e os controlos de configuração e exportação.
+\end{DoxyItemize}
+
+
+
+\begin{quote}
+Descrição\+: Uma captura de ecrã (screenshot) da interface gráfica principal ({\ttfamily \doxylink{main_8py}{main.\+py}}) em funcionamento. A temperatura deve estar em estado "{}\+Normal"{} (verde/ciano) e todos os painéis devem estar visíveis (gráfico, tabela, etc.). \end{quote}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{✨ Funcionalidades (Requisitos Cumpridos)}{✨ Funcionalidades (Requisitos Cumpridos)}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Requisitos Obrigatórios}{Requisitos Obrigatórios}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Monitoramento em Tempo Real\+:}} Exibe o valor atual do sensor com fonte grande e clara.
+\item {\bfseries{Alerta Visual\+:}} O valor da temperatura muda de cor (vermelho/laranja) se ultrapassar os limites.
+\item {\bfseries{Histórico Gráfico\+:}} Um gráfico ({\ttfamily pyqtgraph}) exibe os últimos 60 segundos de dados.
+\item {\bfseries{Salvar Log em CSV\+:}} Um botão ("{}\+Salvar Histórico"{}) permite salvar os dados dos últimos 60 segundos num ficheiro {\ttfamily .csv}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Requisitos Bônus (Extras)}{Requisitos Bônus (Extras)}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Configuração Dinâmica de Alertas\+:}} O usuário pode alterar os limites de alerta (mínimo e máximo) diretamente na interface.
+\item {\bfseries{Exportação Automática de Relatórios\+:}} Um checkbox ("{}\+Log Automático"{}) salva cada pacote recebido num ficheiro CSV contínuo ({\ttfamily sensor\+\_\+log\+\_\+continuo.\+csv}).
+\item {\bfseries{Registro de Timestamp\+:}} Cada leitura é registrada com hora exata ({\ttfamily hh\+:mm\+:ss}).
+\item {\bfseries{Indicador Temporal\+:}} Um label ("{}Última Atualização"{}) mostra o timestamp do último pacote recebido.
+\end{DoxyItemize}
+
+
+
+\begin{quote}
+Descrição\+: Interface em estado de {\bfseries{Alerta}}. A temperatura (ex\+: {\ttfamily 34.\+0 °C}) deve estar em vermelho/laranja e o "{}\+Status"{} deve indicar alerta. \end{quote}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{🚀 Como Executar}{🚀 Como Executar}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Pré-\/requisitos}{Pré-\/requisitos}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Python 3.\+10+ ~\newline
+
+\item Dispositivo STM32 enviando dados via UDP em formato JSON.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{1️⃣ Configurar o Ambiente}{1️⃣ Configurar o Ambiente}}\label{md__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Clone\ o\ repositório}
+\DoxyCodeLine{git\ clone\ https://github.com/MkDev21IA/interface\_grafica\_sensor\_temperatura\_analogica.git}
+\DoxyCodeLine{cd\ interface\_grafica\_sensor\_temperatura\_analogica}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Crie\ e\ ative\ o\ ambiente\ virtual}
+\DoxyCodeLine{python\ -\/m\ venv\ .venv}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ No\ Windows\ (PowerShell)}
+\DoxyCodeLine{.\(\backslash\).venv\(\backslash\)Scripts\(\backslash\)Activate-\/ps1}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ No\ Mac/Linux}
+\DoxyCodeLine{source\ .venv/bin/activate}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{2️⃣ Instalar Dependências}{2️⃣ Instalar Dependências}}\label{md__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip\ install\ -\/r\ requirements.txt}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{\texorpdfstring{3️⃣ Configurar a Rede}{3️⃣ Configurar a Rede}}\label{md__r_e_a_d_m_e_autotoc_md11}
+Edite o ficheiro {\ttfamily config.\+ini}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[Network]}
+\DoxyCodeLine{UDP\_IP\ =\ 0.0.0.0\ \ \#\ IP\ do\ PC\ ou\ 0.0.0.0}
+\DoxyCodeLine{UDP\_PORT\ =\ 5000\ \ \ \#\ Mesma\ porta\ do\ STM32}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+O código C++ no STM32 deve enviar dados para o IP deste PC (ex\+: {\ttfamily 192.\+168.\+1.\+10}) e para a porta {\ttfamily 5000}. \end{quote}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{4️⃣ Formato JSON Esperado}{4️⃣ Formato JSON Esperado}}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}group"{}:\ "{}grupo6"{},}
+\DoxyCodeLine{\ \ "{}sensor\_id"{}:\ "{}SensorDeTemperatura"{},}
+\DoxyCodeLine{\ \ "{}value"{}:\ 23.5,}
+\DoxyCodeLine{\ \ "{}unit"{}:\ "{}°C"{},}
+\DoxyCodeLine{\ \ "{}ts"{}:\ "{}2025-\/11-\/09T21:38:26Z"{}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{5️⃣ Executar}{5️⃣ Executar}}\label{md__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python\ main.py}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{6️⃣ Salvar o Log}{6️⃣ Salvar o Log}}\label{md__r_e_a_d_m_e_autotoc_md14}
+Quando tiver dados suficientes no gráfico, clique em {\bfseries{"{}\+Salvar Histórico (60s) em CSV"{}}}. ~\newline
+ Aparecerá uma janela "{}\+Salvar Como..."{} para escolher onde gravar o arquivo.
+
+
+
+\begin{quote}
+Descrição\+: Captura de ecrã da janela "{}\+Salvar Como..."{} sobre a interface principal após clicar no botão "{}\+Salvar Histórico"{}. \end{quote}

@@ -1,0 +1,54 @@
+\doxysection{src/main\+\_\+window.py File Reference}
+\hypertarget{main__window_8py}{}\label{main__window_8py}\index{src/main\_window.py@{src/main\_window.py}}
+
+
+Implementação da janela principal (Dashboard) da interface gráfica.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmain__window_1_1_main_window}{main\+\_\+window.\+Main\+Window}}
+\begin{DoxyCompactList}\small\item\em Classe principal da interface gráfica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemain__window}{main\+\_\+window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{namespacemain__window_abea0902e710c908cf1852d10c57ad9ab}{main\+\_\+window.\+DEFAULT\+\_\+\+TEMP\+\_\+\+MIN}} = 15.\+0
+\item 
+float \mbox{\hyperlink{namespacemain__window_a9a76da4b307ace5fff5756160305e792}{main\+\_\+window.\+DEFAULT\+\_\+\+TEMP\+\_\+\+MAX}} = 30.\+0
+\item 
+int \mbox{\hyperlink{namespacemain__window_a44b758fa91767c609c4228be3d31f827}{main\+\_\+window.\+HISTORICO\+\_\+\+SEGUNDOS}} = 60
+\item 
+int \mbox{\hyperlink{namespacemain__window_acfe322bb80796a5f5d0e34f17bb059a6}{main\+\_\+window.\+TAMANHO\+\_\+\+TABELA}} = 10
+\item 
+str \mbox{\hyperlink{namespacemain__window_a1ab3cb47d61d6fb1128855104e279de7}{main\+\_\+window.\+LOG\+\_\+\+FILENAME}} = "{}sensor\+\_\+log\+\_\+continuo.\+csv"{}
+\item 
+list \mbox{\hyperlink{namespacemain__window_aa9ae9291ef467b010badc4b2ec05c790}{main\+\_\+window.\+CSV\+\_\+\+HEADER}} = \mbox{[}\textquotesingle{}ts\textquotesingle{}, \textquotesingle{}group\textquotesingle{}, \textquotesingle{}sensor\+\_\+id\textquotesingle{}, \textquotesingle{}value\textquotesingle{}, \textquotesingle{}unit\textquotesingle{}\mbox{]}
+\item 
+str \mbox{\hyperlink{namespacemain__window_a053dbf230d8ba5c8fbb6ff4c9769a932}{main\+\_\+window.\+COR\+\_\+\+FUNDO}} = "{}\#1E1\+E1\+E"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_a2d0c14344e7b8d8beb565386d35f7c83}{main\+\_\+window.\+COR\+\_\+\+TEXTO}} = "{}\#D4\+D4\+D4"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_aec06f4f0b06f239477354338dcabb48b}{main\+\_\+window.\+COR\+\_\+\+DESTAQUE\+\_\+\+NORMAL}} = "{}\#00\+A896"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_ae5dbeeadb814abca16a00a1f791c6df5}{main\+\_\+window.\+COR\+\_\+\+DESTAQUE\+\_\+\+ALERTA}} = "{}\#E53\+D00"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_aad2c251750e1c9181d2712c19f6471a1}{main\+\_\+window.\+COR\+\_\+\+GRAFICO}} = "{}\#00\+A896"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_ab29a54332f9ba2cc46d90759ce7132fc}{main\+\_\+window.\+COR\+\_\+\+GRID}} = "{}\#555555"{}
+\item 
+str \mbox{\hyperlink{namespacemain__window_aa6df123c5f948e145e3024de5c073658}{main\+\_\+window.\+COR\+\_\+\+FUNDO\+\_\+\+PAINEL}} = "{}\#2A2\+A2\+A"{}
+\item 
+int \mbox{\hyperlink{namespacemain__window_a4c38151132166b658977f23b8efae396}{main\+\_\+window.\+TAMANHO\+\_\+\+FONTE\+\_\+\+VALOR}} = 120
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação da janela principal (Dashboard) da interface gráfica. 
+
+Esta classe é o coração da UI. Ela usa Py\+Qt6 e pyqtgraph para criar um dashboard que exibe dados de sensores em tempo real, incluindo valor atual, gráfico histórico, alertas e opções de log. 

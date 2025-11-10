@@ -1,0 +1,23 @@
+\doxysection{src/udp\+\_\+listener.py File Reference}
+\hypertarget{udp__listener_8py}{}\label{udp__listener_8py}\index{src/udp\_listener.py@{src/udp\_listener.py}}
+
+
+Implementa a thread de escuta (listener) UDP.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classudp__listener_1_1_u_d_p_listener}{udp\+\_\+listener.\+UDPListener}}
+\begin{DoxyCompactList}\small\item\em Thread que escuta pacotes UDP e emite sinais com os dados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceudp__listener}{udp\+\_\+listener}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementa a thread de escuta (listener) UDP. 
+
+Este módulo contém a classe UDPListener, que herda de QThread. Sua responsabilidade é escutar por pacotes UDP em uma thread separada para não bloquear a interface gráfica principal. Ele usa um timeout para permitir um encerramento limpo. 
