@@ -1,8 +1,26 @@
 # 📊 Monitor de Sensor UDP (Grupo 6)
 
-Interface gráfica em Python (PyQt6) destinada a receber, processar e exibir dados de um sensor (STM32) enviados via protocolo UDP.
+![Linguagem](https://img.shields.io/badge/Linguagem-Python-blue.svg)
+![Disciplina](https://img.shields.io/badge/Disciplina-Programação%20Aplicada-lightgrey)
+
+Interface gráfica em Python (PyQt6) destinada a receber, processar e exibir dados de um sensor (STM32) enviados via protocolo UDP. 
 
 Este projeto recebe pacotes JSON do dispositivo embarcado e atualiza a interface em tempo real, implementando todos os requisitos obrigatórios e bônus do projeto.
+
+> **Nota Importante:** Este repositório contém a **Interface Gráfica (Front-End)** do projeto.
+>
+> O código C++ para o dispositivo embarcado (STM32), que lê o sensor e envia os dados UDP, pode ser encontrado no repositório complementar:
+> **[MkDev21IA/leitura_sensor_temperatura](https://github.com/MkDev21IA/leitura_sensor_temperatura)**
+
+---
+
+## 👥 Equipe
+
+-   **Mikhael Silveira** – Engenharia Eletrônica
+-   **Rafael Sodré** – Engenharia Elétrica
+-   **Marcos Vinícius** – Engenharia de Comunicações
+
+---
 
 ## 📸 Visão Geral da Interface
 
@@ -143,3 +161,17 @@ Se fizer alterações significativas no código (novas funções, classes) e qui
 
 ```bash
 doxygen Doxyfile
+```
+
+---
+
+
+---
+
+## 🎥 Demonstração em Vídeo
+
+Assista ao vídeo abaixo para ver a interface gráfica a receber dados do sensor STM32 em tempo real.
+
+[![Demonstração da Interface de Sensor UDP](https://img.youtube.com/vi/kT3Aelg4Zzg/0.jpg)](https://youtube.com/shorts/kT3Aelg4Zzg)
+
+> Clique na imagem para ver o vídeo no YouTube.
