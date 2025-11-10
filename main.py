@@ -2,7 +2,7 @@
 
 import sys
 from PyQt6.QtWidgets import QApplication
-from src.main_window import MainWindow # <-- Importa sua classe
+from src.main_window import MainWindow 
 
 if __name__ == "__main__":
     # 1. Cria a "aplicação"

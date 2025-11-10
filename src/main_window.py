@@ -1,5 +1,6 @@
 # src/main_window.py
 
+# Importando bibliotecas necessárias
 import configparser
 import csv
 import os
@@ -9,7 +10,6 @@ from PyQt6.QtWidgets import (
     QPushButton, QFileDialog, QMessageBox, QDoubleSpinBox,
     QCheckBox, QFrame, QFormLayout
 )
-# [MUDANÇA] Qt.DateFormat é necessário para o novo timestamp
 from PyQt6.QtCore import Qt, QDateTime 
 from PyQt6.QtGui import QFont, QColor
 import pyqtgraph as pg
@@ -26,10 +26,10 @@ HISTORICO_SEGUNDOS = 60
 TAMANHO_TABELA = 10 
 
 LOG_FILENAME = "sensor_log_continuo.csv"
-# [MUDANÇA] Cabeçalho do CSV atualizado
+# Cabeçalho do CSV
 CSV_HEADER = ['ts', 'group', 'sensor_id', 'value', 'unit']
 
-# --- Cores (Estilo "Moderno") ---
+# --- Cores  ---
 COR_FUNDO = "#1E1E1E"       
 COR_TEXTO = "#D4D4D4"       
 COR_DESTAQUE_NORMAL = "#00A896" 
@@ -42,7 +42,7 @@ TAMANHO_FONTE_VALOR = 120
 
 class MainWindow(QMainWindow):
     """
-    Interface Gráfica para monitoramento de sensor (v5.3 - Novo Formato JSON).
+    Interface Gráfica para monitoramento de sensor (v5.3).
     """
     def __init__(self):
         super().__init__()
@@ -82,8 +82,8 @@ class MainWindow(QMainWindow):
         self.listener.data_received.connect(self.update_data)
         self.listener.start()
 
+# -- Funções de Estilo e Criação de Componentes ---
     def aplicar_estilo_escuro(self):
-        """Aplica um tema escuro à aplicação."""
         self.setStyleSheet(f"""
             QMainWindow {{ background-color: {COR_FUNDO}; }}
             QLabel {{ color: {COR_TEXTO}; font-size: 14px; }}
@@ -131,7 +131,6 @@ class MainWindow(QMainWindow):
         """)
 
     def criar_painel_destaque(self):
-        """Cria o painel da esquerda com a temperatura atual."""
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter) 
 
@@ -216,7 +215,6 @@ class MainWindow(QMainWindow):
     # --- Funções de Callback (Slots) ---
 
     def limite_dinamico_mudou(self):
-        """[BÔNUS 1] Chamado quando os SpinBox mudam."""
         self.limite_min = self.spin_min.value()
         self.limite_max = self.spin_max.value()
         print(f"Novos limites de alerta: Mín={self.limite_min}, Máx={self.limite_max}")
@@ -224,7 +222,6 @@ class MainWindow(QMainWindow):
             self.spin_max.setValue(self.limite_min + 1)
 
     def save_log_file_manual(self):
-        """Salva os últimos 60s (do buffer do gráfico) num ficheiro."""
         print("Iniciando salvamento manual de log...")
         data_snapshot = list(self.data_buffer_grafico)
         
@@ -259,7 +256,6 @@ class MainWindow(QMainWindow):
             print("Log automático parado.")
 
     def check_and_write_header(self):
-        """Verifica se o ficheiro de log existe. Se não, cria e escreve o cabeçalho."""
         if not os.path.exists(LOG_FILENAME):
             try:
                 with open(LOG_FILENAME, 'w', newline='', encoding='utf-8') as f:
@@ -270,7 +266,6 @@ class MainWindow(QMainWindow):
                 self.log_auto_checkbox.setChecked(False) 
 
     def append_log_data_auto(self, data_dict):
-        """Anexa uma nova linha de dados ao ficheiro CSV automático."""
         try:
             # [MUDANÇA] Usa as novas chaves 'ts' e 'group'
             row = [
@@ -290,7 +285,6 @@ class MainWindow(QMainWindow):
     # -----------------------------------
 
     def update_data(self, data_dict):
-        """Slot principal, chamado quando novos dados chegam."""
         try:
             # --- [MUDANÇA] 1. Extrai dados com as novas chaves ---
             sensor = data_dict.get('sensor_id', 'N/A')
@@ -356,8 +350,8 @@ class MainWindow(QMainWindow):
             self.label_valor_atual.setText("Erro!")
             self.label_status.setText(f"Erro: {e}")
 
+    # --- Evento de Fecho da Janela ---
     def closeEvent(self, event):
-        """Garante que a thread do listener pare ao fechar a janela."""
         print("A fechar a aplicação...")
         self.listener.stop()
         self.listener.wait()

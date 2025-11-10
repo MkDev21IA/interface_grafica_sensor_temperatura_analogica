@@ -1,14 +1,13 @@
 # src/udp_listener.py
 
+# Este módulo implementa um listener UDP que recebe pacotes JSON
+# e emite sinais com os dados recebidos para a interface gráfica.
 import socket
 import json
 from PyQt6.QtCore import QThread, pyqtSignal
 
+# Classe UDPListener: Thread que escuta pacotes UDP
 class UDPListener(QThread):
-    """
-    Escuta a rede numa thread separada.
-    Emite um sinal (data_received) com os dados recebidos.
-    """
     data_received = pyqtSignal(dict)
 
     def __init__(self, ip, port, parent=None):
@@ -18,7 +17,6 @@ class UDPListener(QThread):
         self.running = True
 
     def run(self):
-        """Esta função é executada automaticamente quando a thread começa (com .start())"""
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
         # --- [A CORREÇÃO ESTÁ AQUI] ---
@@ -60,5 +58,4 @@ class UDPListener(QThread):
         print("Thread UDP terminada.")
 
     def stop(self):
-        """Método para parar a thread de forma limpa"""
         self.running = False
