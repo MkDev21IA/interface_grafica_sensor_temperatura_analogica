@@ -31,7 +31,7 @@ A interface principal é um dashboard em modo escuro, dividido em duas secções
 
 ![IMAGEM 1 — Screenshot da interface principal (estado normal)](/images/Print2.png)
 
-> Descrição: Uma captura de ecrã (screenshot) da interface gráfica principal (`main.py`) em funcionamento. A temperatura deve estar em estado "Normal" (verde/ciano) e todos os painéis devem estar visíveis (gráfico, tabela, etc.).
+> Descrição: Uma captura de ecrã (screenshot) da interface gráfica principal (`main.py`) em funcionamento. A temperatura deve está em estado "Normal" (verde/ciano) e todos os painéis estão visíveis (gráfico, tabela, etc.).
 
 ---
 
@@ -51,7 +51,7 @@ A interface principal é um dashboard em modo escuro, dividido em duas secções
 
 ![IMAGEM 2 — Screenshot da interface em alerta](images/Print1.png)
 
-> Descrição: Interface em estado de **Alerta**. A temperatura (ex: `34.0 °C`) deve estar em vermelho/laranja e o "Status" deve indicar alerta.
+> Descrição: Interface em estado de **Alerta**. A temperatura (ex: `34.0 °C`) está em vermelho/laranja e o "Status" indica alerta.
 
 ---
 
@@ -165,12 +165,9 @@ doxygen Doxyfile
 
 ---
 
-
----
-
 ## 🎥 Demonstração em Vídeo
 
-Assista ao vídeo abaixo para ver a interface gráfica a receber dados do sensor STM32 em tempo real.
+Assista ao vídeo abaixo para ver a interface gráfica recebendo dados do sensor STM32 em tempo real.
 
 [![Demonstração da Interface de Sensor UDP](https://img.youtube.com/vi/kT3Aelg4Zzg/0.jpg)](https://youtube.com/shorts/kT3Aelg4Zzg)
 
