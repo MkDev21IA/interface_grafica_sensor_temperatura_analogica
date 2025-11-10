@@ -101,3 +101,45 @@ Aparecerá uma janela "Salvar Como..." para escolher onde gravar o arquivo.
 ![IMAGEM 3 — Janela de salvar histórico](images/Print3.png)
 
 > Descrição: Captura de ecrã da janela "Salvar Como..." sobre a interface principal após clicar no botão "Salvar Histórico".
+
+# 🏗️ Estrutura do Projeto e Documentação
+
+Para facilitar a manutenção e o entendimento do código, o projeto utiliza uma estrutura organizada e documentação gerada via **Doxygen**.
+
+---
+
+## 📁 Organização do Código
+
+O projeto está dividido da seguinte forma:
+
+- **`main.py`** – Ponto de entrada (launcher) da aplicação. Responsável por iniciar o PyQt e carregar a `MainWindow`.
+- **`config.ini`** – Ficheiro de configuração de rede (IP e Porta).
+- **`src/`** – Pasta principal do código-fonte.
+  - **`src/main_window.py`** – Contém a classe `MainWindow`. Define toda a interface gráfica (layouts, botões, gráfico, tabela) e a lógica de atualização da UI.
+  - **`src/udp_listener.py`** – Contém a classe `UDPListener`. É a thread que corre em segundo plano, responsável por escutar a rede, receber os pacotes UDP e emitir os dados para a `MainWindow`.
+- **`Doxyfile`** – Ficheiro de configuração usado pelo Doxygen para gerar a documentação.
+- **`html/`** – Pasta que contém o site da documentação (resultado do Doxygen).
+
+---
+
+## 🧭 Documentação (Doxygen)
+
+O código-fonte (`.py`) está comentado usando o formato Doxygen, permitindo a geração automática de uma documentação navegável.
+
+### 1️⃣ Como Ver a Documentação
+
+A documentação já foi gerada e está incluída neste repositório.
+
+Basta abrir o ficheiro **`html/index.html`** no seu navegador para explorar as classes, ficheiros e funções do projeto.
+
+---
+
+### 2️⃣ Como Atualizar (Regerar) a Documentação
+
+Se fizer alterações significativas no código (novas funções, classes) e quiser atualizar o site da documentação:
+
+1. Certifique-se de que o **Doxygen** está instalado no seu sistema.  
+2. No terminal, na raiz do projeto (onde está o `Doxyfile`), execute:
+
+```bash
+doxygen Doxyfile
